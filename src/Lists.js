@@ -18,13 +18,14 @@ class Lists extends Component {
     var items = this.props.items;
     var lists = this.props.lists;
     var addItem = this.props.addItem;
+
     return (
       <div key={uuidv4()}>
-      {lists.map(function(listName) {
-        return (
-          <List name={listName} items={items[listName]} addItem={addItem.bind(this)} key={uuidv4()} />
-        )
-      })}
+        {lists.map(function(listName) {
+          return (
+            <List name={listName} items={items[listName]} addItem={addItem.bind(this)} key={uuidv4()} />
+          )
+        })}
       </div>
     );
   }

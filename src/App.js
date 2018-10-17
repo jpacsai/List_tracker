@@ -7,9 +7,11 @@ class App extends Component {
 
   constructor() {
     super();
+
+    this.handleAddList = this.handleAddList.bind(this);
     this.state = {
-	lists: [], // this holds the name of each list
-	items: {} // this property names of this object are the names of the lists; their values are arrays of the items in each list
+	    lists: [], // this holds the name of each list
+	    items: {} // this property names of this object are the names of the lists; their values are arrays of the items in each list
     };
   }
 
@@ -41,9 +43,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AddList addList={this.handleAddList.bind(this)} />
+        <AddList addList={this.handleAddList()} />
         <div id="listsDiv" className="List">
-          <Lists lists={this.state.lists} items={this.state.items} addItem={this.handleAddItem.bind(this)} />
+          <Lists lists={this.state.lists} items={this.state.items} addItem={this.handleAddItem.bind(this)}/>
         </div>
       </div>
     );
