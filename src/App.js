@@ -8,7 +8,6 @@ class App extends Component {
   constructor() {
     super();
 
-    this.handleAddList = this.handleAddList.bind(this);
     this.state = {
 	    lists: [], // this holds the name of each list
 	    items: {} // this property names of this object are the names of the lists; their values are arrays of the items in each list
@@ -22,7 +21,17 @@ class App extends Component {
    * as the value put into the "lists" array. It should then re-render this App component.
    */
   handleAddList(s) {
-      // Implement this function!
+
+      const newListItem = s.target[0].value;
+
+      let newLists = this.state.lists.slice(0); 
+      let newItems = Object.assign({}, this.state.items, { [newListItem]: []});
+      newLists.push(newListItem);
+
+      this.setState({
+        lists: newLists,
+        items: newItems
+      })
   }
 
   /**
@@ -43,7 +52,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <AddList addList={this.handleAddList()} />
+        <AddList addList={this.handleAddList.bind(this)} />
         <div id="listsDiv" className="List">
           <Lists lists={this.state.lists} items={this.state.items} addItem={this.handleAddItem.bind(this)}/>
         </div>
