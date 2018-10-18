@@ -19,7 +19,6 @@ class ListItem extends Component {
   render() {
     var item = this.props.item;
     var name = item.name;
-
     return (
       <span onClick={ () => this.handleClick() } style={{color: this.state.color}}>
         <strong>{name}</strong>
