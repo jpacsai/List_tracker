@@ -4,6 +4,9 @@ class AddItem extends Component {
 
   constructor() {
     super();
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+
     this.state = {
       newItem:{}
     }
@@ -11,8 +14,7 @@ class AddItem extends Component {
 
   handleSubmit(e) {
       e.preventDefault(); // this prevents the page from reloading -- do not delete this line!
-
-      // Implement the rest of this function here!
+      this.props.addItem(e, this.props.idName);
   }
     
 
@@ -23,7 +25,7 @@ class AddItem extends Component {
     return (
       <div className='addItemDiv'>
         <h4>Add {this.props.idName}</h4>
-        <form ref='form' onSubmit={this.handleSubmit.bind(this)}>
+        <form ref='form' onSubmit={ (e) => this.handleSubmit(e) }>
           <div id={divName} ref={divName}>
             <label>Name</label><br />
             <input type='text' ref='id' />

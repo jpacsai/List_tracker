@@ -42,8 +42,17 @@ class App extends Component {
    * to an array of the items in that list. After updating the "items" part of 
    * the state, this function  should then re-render this App component.
    */
-  handleAddItem(s) {
-      // Implement this function!
+  handleAddItem(s, id) {
+    const item = s.target[0].value;
+    
+    let newItemsList = this.state.items[id];
+    newItemsList.push(item);
+
+    let newItems = Object.assign({}, this.state.items, { [id]: newItemsList });
+
+    this.setState({
+      items: newItems
+    })
   }
 
   /**

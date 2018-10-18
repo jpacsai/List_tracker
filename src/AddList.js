@@ -8,20 +8,15 @@ class AddList extends Component {
   }
 
   handleSubmit(e) {
-      e.preventDefault(); // this prevents the page from reloading -- do not delete this line!  
+      e.preventDefault(); // this prevents the page from reloading -- do not delete this line!
+      this.props.addList(e);  
   }
 
   render() {
-    
-    const { addList } = this.props;
 
     return (
       <div id="addListDiv">
-        <form onSubmit={ (e) => {
-          this.handleSubmit(e);
-          addList(e);
-          //this.props.addList(e)
-        }}>
+        <form onSubmit={ (e) => this.handleSubmit(e) }>
           <div id='addList'>
             <label>What will be on your next list?&nbsp;
               <input type='text' ref='id' id='newID'></input>
