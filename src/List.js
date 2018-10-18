@@ -7,7 +7,7 @@ class List extends Component {
 
   render() {
     var name = this.props.name;
-    var items = this.props.items;
+    var items = this.props.items[name];
 
     if (items) {
       return (

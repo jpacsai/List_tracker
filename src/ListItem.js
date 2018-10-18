@@ -22,7 +22,7 @@ class ListItem extends Component {
 
     return (
       <span onClick={ () => this.handleClick() } style={{color: this.state.color}}>
-        <strong>{item}</strong>
+        <strong>{name}</strong>
       </span>
     );
 

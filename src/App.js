@@ -44,12 +44,10 @@ class App extends Component {
    */
   handleAddItem(s, id) {
     const item = s.target[0].value;
-    
-    let newItemsList = this.state.items[id];
-    newItemsList.push(item);
-
+    let newItemsList = this.state.items[id]
+    newItemsList.push({ name: item})
     let newItems = Object.assign({}, this.state.items, { [id]: newItemsList });
-
+    console.log(newItems)
     this.setState({
       items: newItems
     })
