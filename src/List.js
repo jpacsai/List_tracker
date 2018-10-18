@@ -16,7 +16,7 @@ class List extends Component {
 	        <ul>
             {items.map(function(item) {
               return (
-                <li key={uuidv4()}><ListItem item={item} key={uuidv4()} /></li>
+                <li className='list-item' key={uuidv4()}><ListItem item={item} key={uuidv4()} />{item}</li>
               )
             })}
 	        </ul>

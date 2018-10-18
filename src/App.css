@@ -76,3 +76,7 @@ body {
   font-family:lucida, sans-serif;
   line-height:1;
 }
+
+.list-item {
+  margin: 10px 0;
+}
